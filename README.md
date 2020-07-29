@@ -23,4 +23,4 @@ Any comments, suggestion or question is welcomed.
 
 ## Illustration
 
-![Illustration](illustration.png)
+![Illustration](illustration.png){:height="75%" width="75%"}
