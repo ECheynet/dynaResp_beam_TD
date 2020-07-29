@@ -23,4 +23,4 @@ Any comments, suggestion or question is welcomed.
 
 ## Illustration
 
-![Illustration](Illustration.png)
+![Illustration](illustration.png)
