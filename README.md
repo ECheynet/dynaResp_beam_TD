@@ -1,5 +1,5 @@
 # dynaResp_beam_TD
-The displacement response of a line-like structure to a Gaussian white noise is computed in the time domain.
+The displacement response of a line-like structure to a Gaussian white noise input is computed in the time domain.
 
 ## Content
 
