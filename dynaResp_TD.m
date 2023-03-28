@@ -19,13 +19,13 @@ function [Do] = dynaResp_TD(m,z,phi,wn,zetaStruct,Fload,t,varargin)
 % Do: matrix [Nyy x N] of nodal displacement (in meters)
 % 
 % Author info: 
-% Etienne Cheynet - UiS - 11.02.2018
+% Etienne Cheynet - UiB - 28.03.2023
 % 
 
 %% Inputparser
 p = inputParser();
 p.CaseSensitive = false;
-p.addOptional('method','RK4');
+p.addOptional('method','Newmark');
 p.parse(varargin{:});
 % shorthen the variables name
 method = p.Results.method ;
@@ -124,7 +124,7 @@ end
         % options: default values
         inp = inputParser();
         inp.CaseSensitive = false;
-        inp.addOptional('alpha',1/4);
+        inp.addOptional('alpha',1/12);
         inp.addOptional('beta',1/2);
         inp.parse(varargin{:});
         % shorthen the variables name
@@ -137,7 +137,7 @@ end
         A = (1./aDT2.*M+beta/aDT*C+K);
         B1 = F+M.*(1./aDT2*x0+1./aDT*dx0+(1/(2*alphaCoeff)-1)*ddx0);
         B2 = C.*(beta/aDT*x0+(beta/alphaCoeff-1).*dx0);
-        B3 = (beta/alphaCoeff-2)*dt/2*ddx0;
+        B3 = C.*((beta/alphaCoeff-2)*dt/2*ddx0);
         
         x1 = A\(B1+B2+B3);
         ddx1= 1/aDT2.*(x1-x0)-1/aDT.*dx0-(1/(2*alphaCoeff)-1).*ddx0;
